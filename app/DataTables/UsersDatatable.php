@@ -1,0 +1,150 @@
+<?php
+
+namespace App\DataTables;
+
+use App\Models\User;
+use Illuminate\Support\Facades\URL;
+use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Services\DataTable;
+
+class UsersDataTable extends DataTable
+{
+    /**
+     * Build DataTable class.
+     *
+     * @param mixed $query Results from query() method.
+     * @return \Yajra\DataTables\DataTableAbstract
+     */
+    public function dataTable($query)
+    {
+        return datatables()
+            ->eloquent($query)
+            ->addColumn('edit', 'admin.users.btn.edit')
+            ->addColumn('delete', 'admin.users.btn.delete')
+            ->addColumn('level', 'admin.users.btn.level')
+            ->addColumn('checkbox', 'admin.users.btn.checkbox')
+            ->rawColumns([
+                'edit',
+                'delete',
+                'level',
+                'checkbox',
+            ]);
+    }
+
+    /**
+     * Get query source of dataTable.
+     *
+     * @param \App\User $model
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function query()
+    {
+        // If user has level then display all related users
+        return User::query()->where(function($query){
+            if(request()->has('level')){
+                return $query->where('level',request('level'));
+            }
+        });
+    }
+
+    /**
+     * Optional method if you want to use html builder.
+     *
+     * @return \Yajra\DataTables\Html\Builder
+     */
+    public function html()
+    {
+        return $this->builder()
+                    ->setTableId('admindatatable-table')
+                    ->columns($this->getColumns())
+                    ->minifiedAjax()
+                    // ->addAction(['width' => '80px'])
+                    ->parameters([
+                    'dom'  => 'Blfrtip',
+                    'lengthMenu' => [[10,25,50,100],[10,25,50,trans('admin.all_records')] ],
+                    
+                    'buttons' => [
+                        [
+                            'text' => '<i class="fa fa-plus"></i>  ' . trans('admin.create_user'),
+                            'className'=>'btn btn-info my-2',   
+                            'action' => "function(){
+                                window.location.href = '".URL::current()."/create';
+                            }"
+                        ],
+                        
+                        ['extend'=>'print','className'=>'btn btn-primary my-2','text'=>'<i class="fa fa-print"></i>  '.trans('admin.ex_print')],
+                        ['extend'=>'csv',
+                        'className'=>'btn btn-info my-2',
+                        'text'=>'<i class="fa fa-file"></i>  '. trans('admin.ex_csv')],
+                        ['extend'=>'excel',
+                        'className'=>'btn btn-success my-2',
+                        'text'=>'<i class="fas fa-table"></i> '. trans('admin.ex_excel')], 
+                        ['extend'=>'reload',
+                        'className'=>'btn btn-secondary my-2',
+                        'text'=>'<i class="fas fa-sync-alt"></i>'],
+                        ['text' => '<i class="fa fa-trash"></i>  ' . trans('admin.delete_all'),
+                            'className'=>'btn btn-danger my-2 del_btn',
+                        ],
+                    ],
+                        'initComplete' => "function () {
+                            this.api().columns([2,3]).every(function () {
+                                var column = this;
+                                var input = document.createElement(\"input\");
+                                $(input).appendTo($(column.footer()).empty())
+                                .on('keyup', function () {
+                                    column.search($(this).val(), false, false, true).draw();
+                                });
+                            });
+                        }",
+
+                        'language' => datatable_lang(),
+
+        ]);
+                    
+    }
+
+    /**
+     * Get columns.
+     *
+     * @return array
+     */
+    protected function getColumns()
+    {
+       
+          return[
+            Column::make('checkbox','checkbox')->
+            title('<input type="checkbox" name="checkbox" class="check_all" value="click" onclick="check_all()"/>'),
+            Column::make('id','id')->title(trans('admin.user_id')),
+            Column::make('name','name')->title(trans('admin.user_name')),
+            Column::make('email','email')->title(trans('admin.user_email')),
+            Column::make('level','level')->title(trans('admin.level')),
+            Column::make('created_at','created_at')->title(trans('admin.created_at')),
+            Column::make('updated_at','updated_at')->title(trans('admin.updated_at')),
+
+            Column::computed('edit')
+                ->title(trans('admin.edit'))
+                ->exportable(false)
+                ->printable(false)
+                ->orderable(false)
+                ->width(20)
+                ->addClass('text-center'),
+            Column::computed('delete')
+                ->title(trans('admin.delete'))
+                ->exportable(false)
+                ->printable(false)
+                ->orderable(false)
+                ->width(20)
+                ->addClass('text-center'),
+        ];
+    }
+
+    /**
+     * Get filename for export.
+     *
+     * @return string
+     */
+    protected function filename()
+    {
+        return 'Users_' . date('YmdHis');
+    }
+}
