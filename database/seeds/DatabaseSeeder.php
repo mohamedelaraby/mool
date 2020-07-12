@@ -21,17 +21,17 @@ class DatabaseSeeder extends Seeder
         // Truncate all tables data [ Empty all tables]
         User::truncate();
         Admin::truncate();
-        Settings::truncate();
+        // Settings::truncate();
 
         // Set the quantity of each table elements
         $userQuantity = 200;
         $adminQuantity = 200;
-        $settingsQuantity = 1;
+        // $settingsQuantity = 1;
 
         // Set the factories
         factory(User::class, $userQuantity)->create();
         factory(Admin::class,$adminQuantity)->create();
-        factory(Settings::class,$settingsQuantity)->create();
+        // factory(Settings::class,$settingsQuantity)->create();
 
 
 

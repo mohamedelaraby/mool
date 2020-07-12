@@ -28,7 +28,8 @@
                         <li class="dropdown dropdown-small">
                             <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">English</a></li>
+                                <li><a href="{{ url('lang/en') }}">{{ trans('front.english') }}</a></li>
+                                <li><a href="{{ url('lang/ar') }}">{{ trans('front.arabic') }}</a></li>
                                 <li><a href="#">French</a></li>
                                 <li><a href="#">German</a></li>
                             </ul>

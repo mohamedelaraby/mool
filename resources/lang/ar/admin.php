@@ -101,6 +101,8 @@ return [
     'close' =>'مغلق',
     'message_maintenance' =>'رسالة الصيانة',
 
-
+    // countires
+    'countries' =>'الدول',
+    'add-country' =>'إضافة',
 
 ];

@@ -15,7 +15,9 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "mcamara/laravel-localization": "^1.5",
-        "yajra/laravel-datatables": "^1.5"
+        "yajra/laravel-datatables": "^1.5",
+        "yajra/laravel-datatables-html": "^4.0",
+        "yajra/laravel-datatables-oracle": "^9.10"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

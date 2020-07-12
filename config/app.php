@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' =>  'Mool',
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' =>  'local',
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool) true,
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://mool.test'),
+    'url' =>  'http://mool.test',
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -119,7 +119,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => 'base64:jQDreOgewVVvTabXv+6COgiW8N3DSpASZ+LVAhaNnsE=',
 
     'cipher' => 'AES-256-CBC',
 
