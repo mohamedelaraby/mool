@@ -38,8 +38,26 @@ class UploadController extends Controller
             // Return Newm image path
             return request()->file($data['file_name'])->store($data['path']);
         }
-
     }
+
+
+//     /**
+//      *  Get request file
+//      * @param  mixed $file
+//      * @param mixed $path
+//      * @param mixed $deleted_file
+//      *  @return string
+//      */
+//     public function uploadImage($file,$path,$deleted_file){
+//         if(request()->hasFile($file)){
+//            $data[$file] = $this->upload([
+//                'file_name' => $file,
+//                'path' => $path,
+//                'upload_type' => 'single',
+//                'delete_file' => $deleted_file,
+//            ]);
+//        }
+//    }
 }
 
 

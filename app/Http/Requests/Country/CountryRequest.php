@@ -5,7 +5,7 @@ namespace App\Http\Requests\Country;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Country extends FormRequest{
+class CountryRequest extends FormRequest{
 
     /**
      * Get the validation rules that apply to the request.

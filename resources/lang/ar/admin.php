@@ -18,6 +18,7 @@ return [
      'admin_account' => ' حساب المشرفين',
      'admin_dashboard' => 'الرئيسية',
      'create_admin' => 'إضافة مشرف جديد ',
+     'copyrights' => 'جميع حقوق الطبع محفوظة',
 
      // admin Datatable
      'ex_excel' => 'تصدير ملف  Excel',
@@ -104,5 +105,11 @@ return [
     // countires
     'countries' =>'الدول',
     'add-country' =>'إضافة',
+    'create_country' =>'إضافة دولة',
+    'country_id' =>'رقم الدولة',
+    'country_name_ar' =>'الدولة بالعربية',
+    'country_name_en' =>'الدولة بالإنجليزية',
+    'mob' =>'مفتاح الدولة',
+    'code' =>'كود الدولة',
 
 ];

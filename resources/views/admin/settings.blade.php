@@ -44,7 +44,9 @@
              {{-- Get Latest Logo --}}
             <div class="form-group">
                 @if(!empty(settings()->logo))
-                    <img src="{{Storage::url(settings()->logo)}}" alt="" class="img-thumbnail thumb">
+
+                    {{-- <img src="{{Storage::url(settings()->logo)}}" alt="" class="img-thumbnail thumb"> --}}
+                    {{-- <img src="{{url('storage/'.settings()->logo)}}" alt="" class="img-thumbnail thumb"> --}}
                 @endif
             </div>
             {{-- icon --}}

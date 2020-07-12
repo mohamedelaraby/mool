@@ -4,8 +4,12 @@
    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
 
    <!-- Bootstrap -->
+   @if(app()->getlocale() == 'en')
    <link rel="stylesheet" href="{{ui_url('css/bootstrap.min.css')}}">
-
+   @else
+   <link rel="stylesheet" href="{{ui_url('rtl/css/bootstrap.min.css')}}">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-flipped.min.css">
+   @endif
    <!-- Font Awesome -->
    <link rel="stylesheet" href="{{ui_url('css/font-awesome.min.css')}}">
 

@@ -19,17 +19,12 @@ Route::get('lang/{lang}', function ($lang) {
     $lang = in_array($lang, ['ar','en']) ?  session()->put('lang', $lang):session()->put('lang', '');
     return back();
 });
-// Route::group(
-//     [
-//         'prefix' => LaravelLocalization::setLocale(),
-//         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ],
-//     ], function(){
 
 
 Route::group(['middleware'=>'Lang'],function(){
-        Route::group(['prefix' => 'admin','namespace' => 'Manage\Admin' , ], function () {
+        Route::group(['prefix' => 'admin', 'namespace' => 'Manage\Admin' , ], function () {
 
-  //  Lang routes
+
 
             // Config admin auth
             // Config::set('auth.defines', 'admin');
@@ -59,6 +54,10 @@ Route::group(['middleware'=>'Lang'],function(){
             // User datatable routes
             Route::resource('users', 'Users\UserController');
             Route::delete('users/delete_all', 'Users\UserController@multi_delete');
+
+            // Countries
+            Route::resource('countries', 'Countries\CountryController');
+            Route::delete('countries/delete_all', 'Countries\CountryController@multi_delete');
 
             // Settings
             Route::get('settings', 'SettingsController@settings');
