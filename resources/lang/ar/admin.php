@@ -109,7 +109,9 @@ return [
     'country_id' =>'رقم الدولة',
     'country_name_ar' =>'الدولة بالعربية',
     'country_name_en' =>'الدولة بالإنجليزية',
-    'mobile' =>'مفتاح الدولة',
+    'mobile' =>'رمز الدولة',
     'code' =>'كود الدولة',
+    'country_logo' =>'علم الدولة',
+
 
 ];

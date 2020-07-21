@@ -15,7 +15,7 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            {!! Form::open(['route'=>'users.store']) !!}
+            {!! Form::open(['route'=>'countries.store','files'=>true]) !!}
 
             @include('admin.countries.form')
 

@@ -26,7 +26,8 @@
 </div>
 
 <div class="form-group">
-  {!! Form::label('logo', trans('admin.logo')) !!}
-  {!! Form::file('logo', [ 'class' =>'form-control',  'placeholder' =>trans('admin.logo'),  'auto-focus'=>'true' ])
+  {!! Form::label('logo', trans('admin.country_logo')) !!}
+  {!! Form::file('logo', [ 'class' =>'form-control',  'placeholder' =>trans('admin.country_logo'),  'auto-focus'=>'true' ])
   !!}
 </div>
+<div id="logo-output" class="mb-3"></div>

@@ -21,12 +21,10 @@ class CountryDataTable extends DataTable
             ->eloquent($query)
             ->addColumn('edit', 'admin.countries.btn.edit')
             ->addColumn('delete', 'admin.countries.btn.delete')
-            ->addColumn('level', 'admin.countries.btn.level')
             ->addColumn('checkbox', 'admin.countries.btn.checkbox')
             ->rawColumns([
                 'edit',
                 'delete',
-                'level',
                 'checkbox',
             ]);
     }
@@ -113,7 +111,7 @@ class CountryDataTable extends DataTable
             Column::make('id','id')->title(trans('admin.country_id')),
             Column::make('country_name_ar','country_name_ar')->title(trans('admin.country_name_ar')),
             Column::make('country_name_en','country_name_en')->title(trans('admin.country_name_en')),
-            Column::make('mob','mob')->title(trans('admin.mob')),
+            Column::make('mobile','mobile')->title(trans('admin.mobile')),
             Column::make('code','code')->title(trans('admin.code')),
             Column::make('created_at','created_at')->title(trans('admin.created_at')),
             Column::make('updated_at','updated_at')->title(trans('admin.updated_at')),

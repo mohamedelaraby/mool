@@ -31,7 +31,7 @@
 <script src="{{admin_ui('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}} "></script>
 <script src="{{admin_ui('plugins/datatables-buttons/js/dataTables.buttons.min.js')}} "></script>
 
-<script src="{{url('/vendor/datatables/buttons.server-side.js')}} "></script>
+<script src="{{url('/vendor/yajra/laravel-datatables-buttons/src/resources/assets/buttons.server-side.js')}} "></script>
 
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="{{admin_ui('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>

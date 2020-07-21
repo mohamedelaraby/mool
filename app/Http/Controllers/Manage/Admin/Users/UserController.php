@@ -18,7 +18,6 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(UsersDataTable $user){
-        // Render datatabale data ino html files
         return $user->render('admin.users.index',['title'=> trans('admin.users'),'user_id'=>$user->id]);
     }
 
@@ -66,7 +65,7 @@ class UserController extends Controller
 
        // Session message
        session()->flash('msg',trans('admin.record_added'));
-       
+
        // Redirect back
        return redirect(admin_url('admin/users'));
     }
@@ -133,7 +132,7 @@ class UserController extends Controller
 
     // Session message
     session()->flash('msg',trans('admin.record_updated'));
-    
+
     // Redirect back
     return redirect(admin_url('users'));
     }
@@ -151,12 +150,12 @@ class UserController extends Controller
 
         // session message
         session()->flash('msg',trans('admin.record_deleted'));
-        
+
         // Redirect back
         return redirect(admin_url('users'));
-    
+
     }
-    
+
     /**
      * Remove the multi resource from storage.
      *

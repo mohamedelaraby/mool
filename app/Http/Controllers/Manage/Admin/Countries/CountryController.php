@@ -47,12 +47,12 @@ class CountryController extends Controller
 
 
        // Validate admin
-       $data = $this->validate($countryRequest,$countryRequest->rules,[],[
+       $data = $this->validate($countryRequest,$countryRequest->rules(),[],[
            'country_name_ar' => trans('admin.country_name_ar'),
            'country_name_en' => trans('admin.country_name_en'),
-           'mob' => trans('admin.country_mob'),
-           'code' => trans('admin.country_code'),
-           'logo' => trans('admin.country_logo'),
+           'mobile' => trans('admin.mobile'),
+           'code' => trans('admin.code'),
+           'logo' => trans('admin.logo'),
        ]);
 
             // If request has logo if then upload
@@ -108,12 +108,14 @@ class CountryController extends Controller
     public function update(CountryRequest $countryRequest , $id)
     {
             // Validate admin
-            $data = $this->validate($countryRequest,$countryRequest->rules,[],[
+            $data = $this->validate($countryRequest,
+            $countryRequest->rules(),
+            [],[
                 'country_name_ar' => trans('admin.country_name_ar'),
                 'country_name_en' => trans('admin.country_name_en'),
-                'mob' => trans('admin.country_mob'),
-                'code' => trans('admin.country_code'),
-                'logo' => trans('admin.country_logo'),
+                'mobile' => trans('admin.mobile'),
+                'code' => trans('admin.code'),
+                'logo' => trans('admin.logo'),
             ]);
 
                  // If request has logo if then upload

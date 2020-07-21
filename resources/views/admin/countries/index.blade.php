@@ -13,13 +13,13 @@
           <!-- /.card-header -->
           <div class="card-body">
               {{--   Start Datatable --}}
-          {!! Form::open(['id'=>'form-data', 'action'=>'Manage\Admin\Users\UserController@multi_delete','method'=> 'POST']) !!}
+          {!! Form::open(['id'=>'form-data', 'action'=>'Manage\Admin\Countries\CountryController@multi_delete','method'=> 'POST']) !!}
           {!! Form::hidden('_method','DELETE') !!}
             {!!$dataTable->table([
               'class' => 'datatable table table-bordered table-striped table-hover'
             ],true)!!}
           {!! Form::close() !!}
-           
+
           </div>
           <!-- /.card-body -->
         </div>
@@ -67,7 +67,7 @@
   <script>
     deleteAll();
   </script>
-  
+
   {{$dataTable->scripts()}}
   @endpush
 {{--   End Datatable --}}

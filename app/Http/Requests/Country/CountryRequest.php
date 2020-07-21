@@ -17,9 +17,9 @@ class CountryRequest extends FormRequest{
         return [
             'country_name_ar' => 'required',
             'country_name_en' => 'required',
-            'mob' => 'required',
+            'mobile' => 'required',
             'code' => 'required',
-            'logo' => 'required',
+            'logo' => ' |'.validate_image(),
         ];
     }
 }

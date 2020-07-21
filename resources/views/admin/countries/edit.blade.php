@@ -15,7 +15,7 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            {!! Form::open(['route'=>['countries.update',$country->id], 'method' =>'post']) !!}
+            {!! Form::open(['route'=>['countries.update',$country->id], 'method' =>'post','files'=>true]) !!}
 
             {!! Form::hidden('_method','put') !!}
             @include('admin.countries.form')
