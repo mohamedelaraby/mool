@@ -113,8 +113,8 @@ class CountryDataTable extends DataTable
             Column::make('country_name_en','country_name_en')->title(trans('admin.country_name_en')),
             Column::make('mobile','mobile')->title(trans('admin.mobile')),
             Column::make('code','code')->title(trans('admin.code')),
-            Column::make('created_at','created_at')->title(trans('admin.created_at')),
-            Column::make('updated_at','updated_at')->title(trans('admin.updated_at')),
+            // Column::make('created_at','created_at')->title(trans('admin.created_at')),
+            // Column::make('updated_at','updated_at')->title(trans('admin.updated_at')),
 
             Column::computed('edit')
                 ->title(trans('admin.edit'))

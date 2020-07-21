@@ -15,7 +15,7 @@
         </div>
 
         {{--  Start Delete form --}}
-        {!! Form::open(['route'=>['users.destroy',$id],'method'=>'POST']) !!}
+        {!! Form::open(['route'=>['countries.destroy',$id],'method'=>'POST']) !!}
         <div class="modal-body">
             {!! Form::hidden('_method','DELETE') !!}
         <h4>{{trans('admin.delete_this',['name'=> session('lang') == 'ar' ? $country_name_ar:$country_name_en])}}</h4>

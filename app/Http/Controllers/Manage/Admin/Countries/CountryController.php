@@ -149,7 +149,7 @@ class CountryController extends Controller
       // Delete country data
       $this->deleteCountry($id);
         session()->flash('msg',trans('admin.record_deleted'));
-        return redirect(admin_url('admin'));
+        return redirect(admin_url('countries'));
     }
 
     /**
@@ -183,7 +183,7 @@ class CountryController extends Controller
      * @return void
      */
     protected function deleteCountry($id){
-        $country = Country::find($id)->delete();
+        $country = Country::find($id);
         Storage::delete($country->logo);
         $country->delete();
     }

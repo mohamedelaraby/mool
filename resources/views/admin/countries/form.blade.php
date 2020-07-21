@@ -30,4 +30,10 @@
   {!! Form::file('logo', [ 'class' =>'form-control',  'placeholder' =>trans('admin.country_logo'),  'auto-focus'=>'true' ])
   !!}
 </div>
+<div class="form-group">
+    @if(!empty($country->logo))
+        <img src="{{Storage::url($country->logo)}}" alt="" class="img-thumbnail thumb">
+    @endif
+</div>
 <div id="logo-output" class="mb-3"></div>
+
