@@ -39,21 +39,21 @@ $factory->define(Admin::class, function (Faker $faker) {
     ];
 });
 
-// Settings factory
-// $factory->define(Settings::class, function (Faker $faker) {
-//     return [
-//         'sitename_ar' => $faker->word,
-//         'sitename_en' => $faker->word,
-//         'logo' =>$faker->randomElement(['1.jpg','2.jpg','3.jpg']),
-//         'icon' =>$faker->randomElement(['1.jpg','2.jpg','3.jpg']),
-//         'email' => $faker->unique()->safeEmail,
-//         'description' => $faker->paragraph(2),
-//         'keywords' => $faker->paragraph(2),
-//         'status'=>$faker->randomElement([Settings::OPEN_STATUS,Settings::CLOSE_STATUS]),
-//         'message_maintenance'=>$faker->paragraph(2),
-//         'main_lang'=>$faker->randomElement([Settings::AR_LANG,Settings::EN_LANG]),
-//     ];
-// });
+//Settings factory
+$factory->define(Settings::class, function (Faker $faker) {
+    return [
+        'sitename_ar' => $faker->word,
+        'sitename_en' => $faker->word,
+        'logo' =>$faker->randomElement(['1.jpg','2.jpg','3.jpg']),
+        'icon' =>$faker->randomElement(['1.jpg','2.jpg','3.jpg']),
+        'email' => $faker->unique()->safeEmail,
+        'description' => $faker->paragraph(2),
+        'keywords' => $faker->paragraph(2),
+        'status'=>$faker->randomElement([Settings::OPEN_STATUS,Settings::CLOSE_STATUS]),
+        'message_maintenance'=>$faker->paragraph(2),
+        'main_lang'=>$faker->randomElement([Settings::AR_LANG,Settings::EN_LANG]),
+    ];
+});
 
 // Transactions factory
 // $factory->define(Transaction::class, function (Faker $faker) {

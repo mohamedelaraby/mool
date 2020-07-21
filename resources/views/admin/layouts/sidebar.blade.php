@@ -138,9 +138,9 @@
                     <p>{{trans('admin.countries')}}</p>
                   </a>
                 </li>
-                 {{-- Normal Users --}}
+
                 <li class="nav-item">
-                    <a href="{{admin_url('countries')}}" class="nav-link active">
+                    <a href="{{admin_url('countries/create')}}" class="nav-link active">
                       <i class="nav-icon fas fa-plus"></i>
                       <p>{{trans('admin.add-country')}}</p>
                     </a>

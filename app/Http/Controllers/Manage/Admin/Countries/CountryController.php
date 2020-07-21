@@ -29,7 +29,11 @@ class CountryController extends Controller
      */
     public function create()
     {
-        return view('admin.countries.create',['title'=>trans('admin.create_country')]);
+        $country = new Country();
+        return view('admin.countries.create',[
+            'title'=>trans('admin.create_country'),
+            'country'=>$country,
+            ]);
     }
 
     /**

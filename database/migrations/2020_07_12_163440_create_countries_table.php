@@ -17,8 +17,8 @@ class CreateCountriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('country_name_ar');
             $table->string('country_name_en');
-            $table->string('mob');
-            $table->string('code');
+            $table->string('mobile'); // country mobile number
+            $table->string('code'); // country key
             $table->string('logo');
             $table->timestamps();
         });
