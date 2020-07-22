@@ -65,9 +65,8 @@ class StateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(State $state)
     {
-        $state = State::find($id);
         return view('admin.states.edit',compact('state'),['title'=>trans('admin.edit')]);
     }
 
@@ -78,17 +77,16 @@ class StateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StateRequest $request , $id)
+    public function update(StateRequest $request , State  $state)
     {
-            // Validate admin
-            $data = $this->validate($request,
-            $request->rules(),
-            [],$this->messages());
 
-
+        // Validate admin
+    $data = $this->validate($request,
+        $request->rules(),
+        [],$this->messages());
 
     // Update state data
-    State::where('id',$id)->update($data);
+    State::where('id',$state->id)->update($data);
 
     // Session message
     $this->session_flash('admin.record_updated');
@@ -103,10 +101,10 @@ class StateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(State $state)
     {
       // Delete state data
-      $this->deleteState($id);
+      $this->deleteState($state->id);
       $this->session_flash('admin.record_deleted');
       return redirect(admin_url('states'));
     }

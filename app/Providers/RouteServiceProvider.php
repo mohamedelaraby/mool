@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\State;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,7 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+        Route::model('state', State::class);
     }
 
     /**
