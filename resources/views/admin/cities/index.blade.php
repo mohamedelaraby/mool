@@ -13,7 +13,7 @@
           <!-- /.card-header -->
           <div class="card-body">
               {{--   Start Datatable --}}
-          {!! Form::open(['id'=>'form-data', 'route'=>'admin.delete-all','method'=> 'POST']) !!}
+        {!! Form::open(['id'=>'form-data', 'route'=>'cities.delete-all','method'=> 'POST']) !!}
           {!! Form::hidden('_method','DELETE') !!}
             {!!$dataTable->table([
               'class' => 'datatable table table-bordered table-striped table-hover'

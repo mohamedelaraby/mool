@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Country;
 use App\Models\Settings;
 use Illuminate\Support\Facades\Request;
  /**
@@ -33,6 +34,17 @@ if (!function_exists('settings')) {
     function settings()
     {
         return Settings::orderBy('id', 'desc')->first();
+    }
+}
+
+/**
+ *  Country id for specific city
+ *  @return Response
+ */
+if (!function_exists('countries')) {
+    function countries()
+    {
+        return Country::pluck('country_name_'.session('lang'), 'id');
     }
 }
  /**

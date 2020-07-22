@@ -13,7 +13,7 @@
           <!-- /.card-header -->
           <div class="card-body">
               {{--   Start Datatable --}}
-          {!! Form::open(['id'=>'form-data', 'action'=>'Manage\Admin\Countries\CountryController@multi_delete','method'=> 'POST']) !!}
+          {!! Form::open(['id'=>'form-data', 'route'=>'countries.delete-all','method'=> 'POST']) !!}
           {!! Form::hidden('_method','DELETE') !!}
             {!!$dataTable->table([
               'class' => 'datatable table table-bordered table-striped table-hover'

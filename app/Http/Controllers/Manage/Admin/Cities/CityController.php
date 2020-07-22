@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Manage\Admin\Countries;
+namespace App\Http\Controllers\Manage\Admin\Cities;
 
 use App\Http\Controllers\Controller;
 use App\DataTables\CityDataTable;
 use App\Http\Requests\City\CityRequest;
 use App\Models\City;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
+
 
 class CityController extends Controller
 {
@@ -56,7 +55,7 @@ class CityController extends Controller
 
 
        // Redirect back
-       return redirect(admin_url('city'));
+       return redirect(admin_url('cities'));
     }
 
 
@@ -144,9 +143,7 @@ class CityController extends Controller
      * @return void
      */
     protected function deleteCity($id){
-        $city = City::find($id);
-        Storage::delete($city->logo);
-        $city->delete();
+        City::find($id)->delete();
     }
 
     /**
@@ -165,7 +162,7 @@ class CityController extends Controller
     /**
      *  Session messages
      *
-     *  @param string|null $msg
+     * @param string|null $msg
      * @return string
      */
     protected function session_flash($msg){

@@ -49,15 +49,19 @@ Route::group(['middleware'=>'Lang'],function(){
 
             // Admin datatable routes
             Route::resource('admin', 'AdminController');
-            Route::delete('delete_all', 'AdminController@multi_delete');
+            Route::delete('delete_all', 'AdminController@multi_delete')->name('admin.delete-all');
 
             // User datatable routes
             Route::resource('users', 'Users\UserController');
-            Route::delete('users/delete_all', 'Users\UserController@multi_delete');
+            Route::delete('users/delete_all', 'Users\UserController@multi_delete')->name('users.delete-all');
 
             // Countries
             Route::resource('countries', 'Countries\CountryController');
-            Route::delete('countries/delete_all', 'Countries\CountryController@multi_delete');
+            Route::delete('countries/delete_all', 'Countries\CountryController@multi_delete')->name('countries.delete-all');
+
+            // Cities
+            Route::resource('cities', 'Cities\CityController');
+            Route::delete('cities/delete_all', 'Cities\CityController@multi_delete')->name('cities.delete-all');
 
             // Settings
             Route::get('settings', 'SettingsController@settings');

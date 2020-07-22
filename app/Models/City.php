@@ -17,4 +17,12 @@ class City extends Model
      *  @return array
      */
     protected $guarded = [];
+
+    /**
+     *  Get Country of the city
+     *  @return response
+     */
+    public function country_id(){
+        return $this->hasOne(Country::class,'id','country_id');
+    }
 }

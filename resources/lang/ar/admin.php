@@ -104,6 +104,7 @@ return [
 
     // countires
     'countries' =>'الدول',
+    'country' =>'الدولة',
     'add-country' =>'إضافة',
     'create_country' =>'إضافة دولة',
     'country_id' =>'رقم الدولة',
@@ -112,6 +113,13 @@ return [
     'mobile' =>'رمز الدولة',
     'code' =>'كود الدولة',
     'country_logo' =>'علم الدولة',
+
+    // Cities
+    'cities' =>'المدن/المحافظات',
+    'create_city' =>'إضافة مدينة',
+    'city_id' =>'رقم المدينة',
+    'city_name_ar' =>'اسم المدينة بالعربية',
+    'city_name_en' =>'اسم المدينة بالإنجليزية',
 
 
 ];

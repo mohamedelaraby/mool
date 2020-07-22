@@ -37,8 +37,7 @@ class CityDataTable extends DataTable
      */
     public function query()
     {
-        // If user has level then display all related users
-        return City::query();
+        return City::query()->with('country_id')->select('cities.*');
     }
 
     /**
@@ -81,7 +80,7 @@ class CityDataTable extends DataTable
                         ],
                     ],
                         'initComplete' => "function () {
-                            this.api().columns([2,3]).every(function () {
+                            this.api().columns([2,3,4]).every(function () {
                                 var column = this;
                                 var input = document.createElement(\"input\");
                                 $(input).appendTo($(column.footer()).empty())
@@ -108,9 +107,10 @@ class CityDataTable extends DataTable
           return[
             Column::make('checkbox','checkbox')->
             title('<input type="checkbox" name="checkbox" class="check_all" value="click" onclick="check_all()"/>'),
-            Column::make('id','id')->title(trans('admin.country_id')),
+            Column::make('id','id')->title(trans('admin.city_id')),
             Column::make('city_name_ar','city_name_ar')->title(trans('admin.city_name_ar')),
             Column::make('city_name_en','city_name_en')->title(trans('admin.city_name_en')),
+            Column::make('country_id.country_name_'.session('lang'),'country_id.country_name_'.session('lang'))->title(trans('admin.country')),
 
 
             Column::computed('edit')
@@ -137,6 +137,6 @@ class CityDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Cities' . date('YmdHis');
+        return 'Cities_' . date('YmdHis');
     }
 }
