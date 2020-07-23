@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\City;
 use App\Models\Country;
 use App\Models\Settings;
 use Illuminate\Support\Facades\Request;
@@ -38,17 +39,18 @@ if (!function_exists('settings')) {
 }
 
 /**
- *  Country id for specific city
+ *  Country name
  *  @return Response
  */
-if (!function_exists('countries')) {
-    function countries()
+if (!function_exists('country_name')) {
+    function country_name()
     {
-        return Country::pluck('country_name_'.session('lang'), 'id');
+        return Country::pluck('country_name_'.app()->getLocale(), 'id');
     }
 }
+
  /**
- *  Get App locale langl
+ *  Get App locale langز
  *  @return session
  */
 if (!function_exists('lang')) {

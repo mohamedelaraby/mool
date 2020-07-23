@@ -176,6 +176,33 @@
                 </ul>
               </li>
 
+              {{-- States --}}
+              <li class="nav-item has-treeview {{active_menu('states')[0]}}">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas fa-flag"></i>
+                  <p>
+                    {{trans('admin.states')}}
+                    <i class="{{arrow_icon()}}"></i>
+                  </p>
+                </a>
+              <ul class="nav nav-treeview" style='{{ active_menu('states')[1] }}'>
+                <li class="nav-item">
+                  <a href="{{admin_url('states')}}" class="nav-link active">
+                    <i class="nav-icon fas fa-flag"></i>
+                    <p>{{trans('admin.states')}}</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{admin_url('states/create')}}" class="nav-link active">
+                      <i class="nav-icon fas fa-plus"></i>
+                      <p>{{trans('admin.create_state')}}</p>
+                    </a>
+                  </li>
+
+                </ul>
+              </li>
+
 
         </ul>
       </nav>

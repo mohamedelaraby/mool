@@ -16,7 +16,7 @@
 <div class="form-group">
     {!! Form::label('country_id', trans('admin.country_id')) !!}
     {!! Form::select('country_id',
-       countries(),
+       country_name(),
     old('country_id'), ['class' =>'form-control', 'auto-focus'=>'true'])
     !!}
   </div>

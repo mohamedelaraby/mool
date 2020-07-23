@@ -63,6 +63,10 @@ Route::group(['middleware'=>'Lang'],function(){
             Route::resource('cities', 'Cities\CityController');
             Route::delete('cities/delete_all', 'Cities\CityController@multi_delete')->name('cities.delete-all');
 
+            // States
+            Route::resource('states', 'States\StateController');
+            Route::delete('states/delete_all', 'States\StateController@multi_delete')->name('states.delete-all');
+
             // Settings
             Route::get('settings', 'SettingsController@settings');
             Route::post('settings', 'SettingsController@settings_save');
