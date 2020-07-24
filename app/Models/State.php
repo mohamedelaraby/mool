@@ -38,7 +38,7 @@ class State extends Model
      *  Get city and country
      *  @return response
      */
-    public function scopeGetCountryAndCity(){
+    public function ScopeGetCountryAndCity(){
         return $this->query()->with('country_id')->with('city_id')->select('states.*');
     }
 }

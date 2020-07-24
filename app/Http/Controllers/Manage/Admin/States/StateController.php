@@ -36,7 +36,7 @@ class StateController extends Controller
         if(request()->has('country_id')){
             // Find select data
             $select = request()->has('select') ? request('select'): '';
-            return Form::select('country_id',
+            return Form::select('city_id',
             City::cityNameWithCountry(),
                          $select,
                          ['class' =>'form-control', 'auto-focus'=>'true',
@@ -60,7 +60,6 @@ class StateController extends Controller
     public function store(StateRequest $request )
     {
 
-
        // Validate admin
        $data = $this->validate($request,$request->rules(),[],$this->messages());
 
@@ -68,7 +67,7 @@ class StateController extends Controller
        State::create($data);
 
        // Session message
-       $this->session_flash('admin.record_added');
+       $this->session_flash('admin.states_added');
        // Redirect back
        return redirect(admin_url('states'));
     }
