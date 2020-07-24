@@ -110,7 +110,7 @@ class CityDataTable extends DataTable
             Column::make('id','id')->title(trans('admin.city_id')),
             Column::make('city_name_ar','city_name_ar')->title(trans('admin.city_name_ar')),
             Column::make('city_name_en','city_name_en')->title(trans('admin.city_name_en')),
-            Column::make('country_id.country_name_'.session('lang'),'country_id.country_name_'.session('lang'))->title(trans('admin.country')),
+            Column::make('country_id.country_name_'.app()->getLocale(),'country_id.country_name_'.app()->getLocale())->title(trans('admin.country')),
 
 
             Column::computed('edit')

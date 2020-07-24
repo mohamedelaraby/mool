@@ -175,6 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*** Applications providers */
+        Collective\Html\HtmlServiceProvider::class,
+
     ],
 
     /*
@@ -230,7 +233,9 @@ return [
         /**
          *  Application aliases
          */
-        'Up' =>'App\Http\Controllers\UploadController::class'
+        'Up' =>'App\Http\Controllers\UploadController::class',
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

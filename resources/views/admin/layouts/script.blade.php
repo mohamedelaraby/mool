@@ -1,5 +1,6 @@
 
 <!-- jQuery -->
+
 <script src="{{admin_ui('plugins/jquery/jquery.min.js')}}"></script>
 
 <!-- jQuery UI 1.11.4 -->
@@ -54,3 +55,5 @@
      $('.alert').fadeOut('fast');
  }, 3000);
  </script> --}}
+
+

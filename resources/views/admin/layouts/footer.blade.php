@@ -14,7 +14,7 @@
 
 @include('admin.layouts.script')
 
-@stack('js')
+@stack('script')
 @stack('css')
 </body>
 </html>

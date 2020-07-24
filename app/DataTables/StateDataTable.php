@@ -80,7 +80,7 @@ class StateDataTable extends DataTable
                         ],
                     ],
                         'initComplete' => "function () {
-                            this.api().columns([2,3,4]).every(function () {
+                            this.api().columns([2,3,4,5]).every(function () {
                                 var column = this;
                                 var input = document.createElement(\"input\");
                                 $(input).appendTo($(column.footer()).empty())
@@ -110,9 +110,8 @@ class StateDataTable extends DataTable
             Column::make('id','id')->title(trans('admin.state_id')),
             Column::make('state_name_ar','state_name_ar')->title(trans('admin.state_name_ar')),
             Column::make('state_name_en','state_name_en')->title(trans('admin.state_name_en')),
-            Column::make('state_id.state_name_'.session('lang'),'state_id.state_name_'.session('lang'))->title(trans('admin.state')),
-            Column::make('country_id.country_name_'.session('lang'),'country_id.country_name_'.session('lang'))->title(trans('admin.country')),
-            Column::make('city_id.city_name_'.session('lang'),'city_id.city_name_'.session('lang'))->title(trans('admin.city')),
+            Column::make('country_id.country_name_'.app()->getLocale(),'country_id.country_name_'.app()->getLocale())->title(trans('admin.country')),
+            Column::make('city_id.city_name_'.app()->getLocale(),'city_id.city_name_'.app()->getLocale())->title(trans('admin.city')),
 
 
             Column::computed('edit')

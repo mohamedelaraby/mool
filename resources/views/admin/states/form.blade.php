@@ -1,3 +1,4 @@
+@include('admin.states.script')
 {!! Form::token() !!}
 {{-- name --}}
 <div class="form-group">
@@ -16,11 +17,16 @@
 <div class="form-group">
     {!! Form::label('country_id', trans('admin.country_id')) !!}
     {!! Form::select('country_id',
-       country_name
-
-       (),
-    old('country_id'), ['class' =>'form-control', 'auto-focus'=>'true'])
+       country_name(),
+    old('country_id'),
+    ['class' =>'form-control country_id', 'auto-focus'=>'true',
+    'placeholder' =>'........................'])
     !!}
+  </div>
+
+<div class="form-group">
+    {!! Form::label('city_id', trans('admin.city_id')) !!}
+ <span class="city"></span>
   </div>
 
 

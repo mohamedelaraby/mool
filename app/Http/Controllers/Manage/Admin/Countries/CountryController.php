@@ -42,12 +42,12 @@ class CountryController extends Controller
      * @param  \Illuminate\Http\Request
      * @return \Illuminate\Http\Response
      */
-    public function store(CountryRequest $countryRequest )
+    public function store(CountryRequest $request )
     {
 
 
        // Validate admin
-       $data = $this->validate($countryRequest,$countryRequest->rules(),[],[
+       $data = $this->validate($request,$request->rules(),[],[
            'country_name_ar' => trans('admin.country_name_ar'),
            'country_name_en' => trans('admin.country_name_en'),
            'mobile' => trans('admin.mobile'),

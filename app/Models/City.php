@@ -25,4 +25,13 @@ class City extends Model
     public function country_id(){
         return $this->hasOne(Country::class,'id','country_id');
     }
+
+    /**
+     *  Get Country of the city
+     *  @return response
+     */
+    public function ScopeCityNameWithCountry(){
+        return $this->where('country_id',request('country_id'))->pluck('city_name_'.app()->getLocale(),'id');
+
+    }
 }

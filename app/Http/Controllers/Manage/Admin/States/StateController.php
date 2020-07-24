@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Manage\Admin\States;
 use App\Http\Controllers\Controller;
 use App\DataTables\StateDataTable;
 use App\Http\Requests\State\StateRequest;
+use App\Models\City;
 use App\Models\State;
+use Collective\Html\FormFacade as Form;
 
 
 class StateController extends Controller
@@ -28,6 +30,21 @@ class StateController extends Controller
     public function create()
     {
         $state = new State();
+
+    // $this->countryAndCityData();
+    if(request()->ajax()){
+        if(request()->has('country_id')){
+            // Find select data
+            $select = request()->has('select') ? request('select'): '';
+            return Form::select('country_id',
+            City::cityNameWithCountry(),
+                         $select,
+                         ['class' =>'form-control', 'auto-focus'=>'true',
+                         'placeholder' =>'........................']);
+
+
+        }
+    }
         return view('admin.states.create',[
             'title'=>trans('admin.create_state'),
             'state'=>$state,
@@ -52,8 +69,6 @@ class StateController extends Controller
 
        // Session message
        $this->session_flash('admin.record_added');
-
-
        // Redirect back
        return redirect(admin_url('states'));
     }
@@ -167,4 +182,12 @@ class StateController extends Controller
     }
 
 
+    /**
+     *  Find country and city related data
+     * @return response
+     */
+    protected function countryAndCityData(){
+             // If her is ajax request and and has country_id reuest then display form html with selected city
+
+    }
 }
